@@ -2,11 +2,21 @@
 {% block title %}Biography{% endblock %}
 
 {% block content %}
-<h2 class="text-2xl font-semibold text-gray-700 mb-4 flex items-center gap-2">
-  <i class="fas fa-user-tie text-blue-600 text-xl"></i>
-  About Dr. Fu
-</h2>
- <p><strong>Name:</strong> Dr. Yujian Fu</p>
+<section class="container py-5">
+
+  <!-- Header -->
+  <header class="text-center mb-5">
+    <h2 class="fw-bold mb-2" style="font-size:1.75rem;">About Dr. Fu</h2>
+    <div class="mx-auto rounded-pill" 
+         style="width:30%; max-width:200px; height:4px; 
+                background:linear-gradient(90deg,#0d6efd,#20c997);">
+    </div>
+  </header>
+
+  <!-- Contact Info -->
+  <div class="card shadow-sm border-0 p-4 mb-4">
+    <h3 class="fw-semibold mb-3">Contact Information</h3>
+    <p><strong>Name:</strong> Dr. Yujian Fu</p>
     <p><strong>Title:</strong> Professor</p>
     <p><strong>Department:</strong> Electrical Engineering & Computer Science</p>
     <p><strong>School:</strong> School of Engineering, Technology & Physical Sciences</p>
@@ -16,37 +26,51 @@
     <p><strong>Phone:</strong> (256) 372-8461</p>
     <p><strong>Fax:</strong> (256) 372-5578</p>
     <p><strong>Email:</strong> yujian.fu@aamu.edu</p>
+  </div>
 
-    <h3>Academic Positions</h3>
-    <ul>
-      <li>Professor, Alabama A&M University, 2019 – Present</li>
-      <li>Associate Professor, Alabama A&M University, 2012 – 2019</li>
-      <li>Assistant Professor, Alabama A&M University, 2007 – 2012</li>
+  <!-- Academic Positions -->
+  <div class="card shadow-sm border-0 p-4 mb-4">
+    <h3 class="fw-semibold mb-3">Academic Positions</h3>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item px-0 py-2">Professor, Alabama A&M University, 2019 – Present</li>
+      <li class="list-group-item px-0 py-2">Associate Professor, Alabama A&M University, 2012 – 2019</li>
+      <li class="list-group-item px-0 py-2">Assistant Professor, Alabama A&M University, 2007 – 2012</li>
     </ul>
+  </div>
 
-    <h3>Research Interests</h3>
-    <ul>
-      <li>Machine Learning, Artificial Intelligence</li>
-      <li>Cyber Physical Systems Modeling and Analysis</li>
-      <li>Software Engineering, Runtime Verification</li>
-      <li>Security: Malware Detection, Intrusion Detection, Mobile Security</li>
-      <li>Optimization, Reinforcement Learning, Formal Verification</li>
+  <!-- Research Interests -->
+  <div class="card shadow-sm border-0 p-4 mb-4">
+    <h3 class="fw-semibold mb-3">Research Interests</h3>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item px-0 py-2">Machine Learning, Artificial Intelligence</li>
+      <li class="list-group-item px-0 py-2">Cyber Physical Systems Modeling and Analysis</li>
+      <li class="list-group-item px-0 py-2">Software Engineering, Runtime Verification</li>
+      <li class="list-group-item px-0 py-2">Security: Malware Detection, Intrusion Detection, Mobile Security</li>
+      <li class="list-group-item px-0 py-2">Optimization, Reinforcement Learning, Formal Verification</li>
     </ul>
+  </div>
 
-    <h3>Affiliations</h3>
-    <ul>
-      <li>Member of ACM</li>
-      <li>Member of IEEE Computer Society</li>
-      <li>Member of ASEE</li>
+  <!-- Affiliations -->
+  <div class="card shadow-sm border-0 p-4 mb-4">
+    <h3 class="fw-semibold mb-3">Affiliations</h3>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item px-0 py-2">Member of ACM</li>
+      <li class="list-group-item px-0 py-2">Member of IEEE Computer Society</li>
+      <li class="list-group-item px-0 py-2">Member of ASEE</li>
     </ul>
+  </div>
 
-    <h3>Honors & Awards</h3>
-    <ul>
-      <li>Faculty Summer Fellowship, Air Force, 2020</li>
-      <li>Faculty Research Award, Alabama A&M University, 2015</li>
-      <li>College Research Award, 2015</li>
-      <li>Faculty Summer Internships, Air Force Research Lab (2012, 2014)</li>
-      <li>NSF/FIU Faculty Scholarship, 2012</li>
+  <!-- Honors & Awards -->
+  <div class="card shadow-sm border-0 p-4 mb-4">
+    <h3 class="fw-semibold mb-3">Honors & Awards</h3>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item px-0 py-2">Faculty Summer Fellowship, Air Force, 2020</li>
+      <li class="list-group-item px-0 py-2">Faculty Research Award, Alabama A&M University, 2015</li>
+      <li class="list-group-item px-0 py-2">College Research Award, 2015</li>
+      <li class="list-group-item px-0 py-2">Faculty Summer Internships, Air Force Research Lab (2012, 2014)</li>
+      <li class="list-group-item px-0 py-2">NSF/FIU Faculty Scholarship, 2012</li>
     </ul>
+  </div>
 
+</section>
 {% endblock %}

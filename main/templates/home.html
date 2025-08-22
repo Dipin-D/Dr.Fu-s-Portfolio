@@ -5,14 +5,23 @@
 {% block content %}
 {% load static %}
 <!-- Academic Header -->
-<header class="academic-header">
-  {% load static %}
-  <img src="{% static 'dr.fu.PNG' %}" alt="Dr. Yujian Fu" class="profile-img">
-  <h1>Dr. Yujian Fu</h1>
-  <p class="fw-medium">Professor, Department of Electrical Engineering & Computer Science</p>
-  <p class="mt-3">
-    I am a Professor specializing in formal modeling, software engineering, and intelligent analysis of cyber-physical systems.
-    My research group focuses on making deep learning and real-time systems more secure, robust, and interpretable through formal specification, verification, software architecture, and runtime assurance of embedded and intelligent systems.
+<header class="text-center py-5">
+  <img src="{% static 'dr.fu.PNG' %}" alt="Dr. Yujian Fu" 
+       class="rounded-circle border border-3 border-light shadow-sm mb-4" 
+       style="width:160px; height:160px; object-fit:cover;">
+
+<header class="text-center mb-5">
+<h2 class="fw-bold mb-2" style="font-size:1.75rem;">Dr. Yujian Fu</h2>
+<div class="mx-auto rounded-pill" style="width:30%; max-width:200px; height:4px; background:linear-gradient(90deg,#0d6efd,#20c997);"></div>
+</header>  <p class="fw-medium text-secondary mb-3" style="font-size:1.1rem;">
+    Professor, Department of Electrical Engineering & Computer Science
+  </p>
+
+  <p class="text-muted mx-auto" style="max-width:750px; font-size:1rem; line-height:1.7;">
+    I am a Professor specializing in formal modeling, software engineering, and intelligent analysis of 
+    cyber-physical systems. My research group focuses on making deep learning and real-time systems more 
+    secure, robust, and interpretable through formal specification, verification, software architecture, 
+    and runtime assurance of embedded and intelligent systems.
   </p>
 </header>
 

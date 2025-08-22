@@ -1,17 +1,41 @@
-
 {% extends 'base.html' %}
 {% block title %}Software{% endblock %}
 
 {% block content %}
-<h2 class="text-2xl font-semibold text-gray-700 mb-4 flex items-center gap-2">
-  <i class="fas fa-tools text-blue-600 text-xl"></i>
-  Software / Tools / Systems
-</h2>
-    <ul>
-      <li><strong>WReSTT:</strong> Web-based testing tool for teaching software testing.</li>
-      <li><strong>Model-Based Testing Platforms:</strong> Android and CPS system test environments.</li>
-      <li><strong>Runtime Verification Systems:</strong> For robotics and embedded systems.</li>
-      <li><strong>AI-enhanced Adaptive Learning Tools:</strong> NSF-funded educational research tools.</li>
-      <li><strong>SMT Solvers:</strong> Used for intelligent system analysis and formal verification.</li>
-      <li><strong>Maude:</strong> Used for smart contract verification in blockchain research.</li>
-    </ul>{% endblock %}
+<section class="container py-5">
+
+  <!-- Header -->
+  <header class="text-center mb-5">
+    <h2 class="fw-bold mb-2" style="font-size:1.75rem;">Software / Tools / Systems</h2>
+    <div class="mx-auto rounded-pill" 
+         style="width:30%; max-width:200px; height:4px; 
+                background:linear-gradient(90deg,#0d6efd,#20c997);">
+    </div>
+  </header>
+
+  <!-- Software List -->
+  <div class="card shadow-sm border-0 p-4">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item px-0 py-2">
+        <strong>WReSTT:</strong> Web-based testing tool for teaching software testing.
+      </li>
+      <li class="list-group-item px-0 py-2">
+        <strong>Model-Based Testing Platforms:</strong> Android and CPS system test environments.
+      </li>
+      <li class="list-group-item px-0 py-2">
+        <strong>Runtime Verification Systems:</strong> For robotics and embedded systems.
+      </li>
+      <li class="list-group-item px-0 py-2">
+        <strong>AI-enhanced Adaptive Learning Tools:</strong> NSF-funded educational research tools.
+      </li>
+      <li class="list-group-item px-0 py-2">
+        <strong>SMT Solvers:</strong> Used for intelligent system analysis and formal verification.
+      </li>
+      <li class="list-group-item px-0 py-2">
+        <strong>Maude:</strong> Used for smart contract verification in blockchain research.
+      </li>
+    </ul>
+  </div>
+
+</section>
+{% endblock %}
