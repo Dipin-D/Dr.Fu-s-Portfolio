@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Research Projects - Dr. Yujian Fu{% endblock %}
+
+{% block content %}
+<section class="container py-5">
+  <!-- Header -->
+  <header class="text-center mb-5">
+    <h2 class="fw-bold mb-2" style="font-size:1.75rem;">Research Projects</h2>
+    <div class="mx-auto rounded-pill" style="width:30%; max-width:200px; height:4px; background:linear-gradient(90deg,#0d6efd,#20c997);"></div>
+    <p class="mt-4 text-gray-600 text-base md:text-lg">
+      Selected funded research projects led by Dr. Yujian Fu.
+    </p>
+  </header>
+
+  <!-- Projects Table -->
+  <div class="overflow-x-auto bg-white">
+    <table class="w-full border border-gray-200 shadow-sm rounded-lg overflow-hidden">
+      <thead class="bg-gray-100 text-gray-700 text-xs md:text-sm uppercase tracking-wide">
+        <tr>
+          <th class="text-left px-4 py-3 w-2/5">Project</th>
+          <th class="text-left px-4 py-3 w-1/6">Agency</th>
+          <th class="text-left px-4 py-3 w-1/6">Timeline</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200 text-gray-800 text-sm md:text-base">
+
+        <!-- NSF Row 1 -->
+        <tr class="hover:bg-gray-50">
+          <td class="px-4 py-4">
+            <a href="/researchprojects/project1" class="text-blue-600 hover:underline">
+              Excellence in Research – Research of Swarm Control by Synthesizing Reinforcement Learning with Temporal Logic in Swarm
+            </a>
+          </td>
+          <td class="px-4 py-4 flex items-center gap-2">
+            <img src="{% static 'NSF.jpg' %}" alt="NSF"
+                 class="rounded-full border border-2 border-gray-300 shadow-sm"
+                 style="width:40px; height:40px; object-fit:cover; background:#f0f0f0;">
+            NSF
+          </td>
+          <td class="px-4 py-4 text-gray-600">September 2024 – August 2027</td>
+        </tr>
+
+        <!-- NSF Row 2 -->
+        <tr class="hover:bg-gray-50">
+          <td class="px-4 py-4">
+            <a href="/researchprojects/project2" class="text-blue-600 hover:underline">
+              Improving Programming Skills of Engineering Students at Historically Black Colleges and Universities Using AI-enhanced
+            </a>
+          </td>
+          <td class="px-4 py-4 flex items-center gap-2">
+            <img src="{% static 'NSF.jpg' %}" alt="NSF"
+                 class="rounded-full border border-2 border-gray-300 shadow-sm"
+                 style="width:40px; height:40px; object-fit:cover; background:#f0f0f0;">
+            NSF
+          </td>
+          <td class="px-4 py-4 text-gray-600">September 2023 – August 2026</td>
+        </tr>
+
+        <!-- NSF Row 3 -->
+        <tr class="hover:bg-gray-50">
+          <td class="px-4 py-4">
+            <a href="/researchprojects/project3" class="text-blue-600 hover:underline">
+              Implementing a Change-Focused Faculty Learning Community for Integrating Student Learning and Engagement Strategies in CS/IT/SE Courses
+            </a>
+          </td>
+          <td class="px-4 py-4 flex items-center gap-2">
+            <img src="{% static 'NSF.jpg' %}" alt="NSF"
+                 class="rounded-full border border-2 border-gray-300 shadow-sm"
+                 style="width:40px; height:40px; object-fit:cover; background:#f0f0f0;">
+            NSF
+          </td>
+          <td class="px-4 py-4 text-gray-600">June 2023 – May 2027</td>
+        </tr>
+
+        <!-- NSF Row 4 -->
+        <tr class="hover:bg-gray-50">
+          <td class="px-4 py-4">
+            <a href="/researchprojects/project4" class="text-blue-600 hover:underline">
+              Improving Programming Skills of Engineering Students at HBCUs Using AI-enhanced Personalized Adaptive Learning Tools
+            </a>
+          </td>
+          <td class="px-4 py-4 flex items-center gap-2">
+            <img src="{% static 'NSF.jpg' %}" alt="NSF"
+                 class="rounded-full border border-2 border-gray-300 shadow-sm"
+                 style="width:40px; height:40px; object-fit:cover; background:#f0f0f0;">
+            NSF
+          </td>
+          <td class="px-4 py-4 text-gray-600">September 2023 – August 2026</td>
+        </tr>
+
+        <!-- AFRL Row -->
+        <tr class="hover:bg-gray-50">
+          <td class="px-4 py-4">
+            <a href="/researchprojects/project5" class="text-blue-600 hover:underline">
+              Synthesized Control Using Reinforcement Learning
+            </a>
+          </td>
+          <td class="px-4 py-4 flex items-center gap-2">
+            <img src="{% static 'AFRL.PNG' %}" alt="AFRL"
+                 class="rounded-md border border-2 border-gray-300 shadow-sm"
+                 style="width:100px; height:50px; object-fit:contain; background:#f0f0f0;">
+            AFRL
+          </td>
+          <td class="px-4 py-4 text-gray-600">March 2022 – February 2024</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}
