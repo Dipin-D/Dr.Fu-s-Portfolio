@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Enhanced Programming Skills</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0c0d11;
+            color: #d1d5db;
+            overflow-x: hidden;
+        }
+        #network-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+        .team-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            font-weight: 600;
+            color: #e5e7eb;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .team-card:hover {
+            transform: scale(1.05);
+            background-color: rgba(99, 102, 241, 0.1);
+        }
+        .hero-button {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            background: linear-gradient(90deg, #6366f1, #9333ea);
+            border-radius: 9999px;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .hero-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.6);
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+  <section class="relative h-[100vh] flex items-center justify-center text-center overflow-hidden">
+    <!-- Network Canvas -->
+    <canvas id="network-canvas" class="absolute inset-0"></canvas>
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+
+    <!-- Back Button (absolute top-left, above blur) -->
+    <a href="{% url 'researchprojects' %}" 
+       class="absolute top-6 left-6 z-20 text-white bg-black/40 backdrop-blur-md px-4 py-2 rounded-lg hover:bg-black/60 transition">
+      ← Back to Research Projects
+    </a>
+
+    <!-- Main Content -->
+    <div class="relative z-10 max-w-4xl px-8 text-center">
+      <img src="{% static 'project2.PNG' %}" 
+           style="width:160px; height:180px; object-fit:cover;" 
+           class="mx-auto mb-8 drop-shadow-xl animate-pulse">
+
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-white drop-shadow-lg">
+        AI-Enhanced Programming Skills at HBCUs
+      </h1>
+
+      <p class="mt-6 text-xl text-indigo-200">
+        <p class="flex items-center gap-2 justify-center text-lg">
+          Funded by 
+          <span class="font-semibold text-white">National Science Foundation</span>
+          <img src="{% static 'NSF.jpg' %}" alt="NSF Logo" 
+               class="w-6 h-6 rounded-full object-cover border border-gray-300 shadow-sm">
+        </p>
+      </p>
+
+      <a href="#overview" class="hero-button mt-10">
+        Explore Project ↓
+      </a>
+    </div>
+  </section>
+
+    <!-- Main Content -->
+    <section class="relative max-w-6xl mx-auto px-8 py-20 space-y-24">
+        <div id="overview" class="glass-card animate-on-scroll">
+            <h2 class="section-title">Project Description</h2>
+            <p class="mb-6 text-lg text-gray-300">This project, led by <strong>Prairie View A&M University</strong> and <strong>Alabama A&M University</strong>, enhances programming education for engineering students at HBCUs via AI-driven Personalized Adaptive Learning (PAL) tools.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mt-8">
+                <div class="p-6 bg-white/5 rounded-lg border border-white/10 shadow-lg transition hover:scale-105">
+                    <h3 class="font-bold text-lg text-white">Smart Online Modules</h3>
+                    <p class="mt-2 text-gray-400">For assignments, projects, and exams.</p>
+                </div>
+                <div class="p-6 bg-white/5 rounded-lg border border-white/10 shadow-lg transition hover:scale-105">
+                    <h3 class="font-bold text-lg text-white">PAL Path Recommender</h3>
+                    <p class="mt-2 text-gray-400">Powered by deep reinforcement learning.</p>
+                </div>
+                <div class="p-6 bg-white/5 rounded-lg border border-white/10 shadow-lg transition hover:scale-105">
+                    <h3 class="font-bold text-lg text-white">Smart Programming Assistant</h3>
+                    <p class="mt-2 text-gray-400">Using large language models.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="merit" class="glass-card animate-on-scroll">
+            <h2 class="section-title">Intellectual Merit</h2>
+            <p class="text-lg text-gray-300">This research integrates reinforcement learning, RNNs, and LLMs into an adaptive education ecosystem, addressing persistent programming education challenges and pioneering new AI-based pedagogical methods.</p>
+        </div>
+
+        <div id="impacts" class="glass-card animate-on-scroll">
+            <h2 class="section-title">Broader Impacts</h2>
+            <p class="text-lg text-gray-300">Expanding HBCU research capacity and engaging underrepresented students in AI, this project strengthens diversity in STEM and prepares a future-ready workforce. Tools will be integrated into curricula and openly shared with the wider academic community.</p>
+        </div>
+
+        <div id="team" class="glass-card animate-on-scroll">
+            <h2 class="section-title text-center">Team</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="team-card">Dipin Dawadi</div>
+                <div class="team-card">Bikash Gautam</div>
+                <div class="team-card">Zizwe Mtonga</div>
+                <div class="team-card">Olayiwola Ajibode</div>
+            </div>
+        </div>
+
+        <div id="pubs" class="glass-card animate-on-scroll">
+            <h2 class="section-title text-center">Publications & Posters</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-indigo-400">AAMU STEM Day Posters</h3>
+                    <div class="bg-gray-800/20 p-6 rounded-lg border border-gray-700/50 hover:border-indigo-400 transition-colors duration-300">
+                        <p class="text-gray-400 leading-relaxed">
+                            <strong>Dipin Dawadi</strong> — <em>Smart CMS</em>. April 2025
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-indigo-400">AAMU STEM Day Posters</h3>
+                        <div class="bg-gray-800/20 p-6 rounded-lg border border-gray-700/50 hover:border-indigo-400 transition-colors duration-300">
+                            <p class="text-gray-400 leading-relaxed">
+                                <strong>Zizwe Mtonga, Olayiwola Ajibode</strong> — <em>The Smart Learning System</em>. April 2025
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to top -->
+    <button onclick="window.scrollTo({top:0, behavior:'smooth'})"
+        class="fixed bottom-6 right-6 px-4 py-3 bg-indigo-600 rounded-full shadow-lg hover:bg-indigo-700 transition">
+        ↑
+    </button>
+
+    <script>
+        window.onload = function() {
+            // --- Network Visualization Setup ---
+            const canvas = document.getElementById('network-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let nodes = [];
+            const maxNodes = 60;
+            const nodeRadius = 2;
+            const lineDistance = 150;
+
+            function resizeCanvas() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            for (let i = 0; i < maxNodes; i++) {
+                nodes.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5
+                });
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.strokeStyle = 'rgba(156, 163, 175, 0.2)';
+
+                nodes.forEach(node => {
+                    node.x += node.vx;
+                    node.y += node.vy;
+
+                    if (node.x < 0 || node.x > width) node.vx *= -1;
+                    if (node.y < 0 || node.y > height) node.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, nodeRadius, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    nodes.forEach(other => {
+                        if (node === other) return;
+
+                        const dx = node.x - other.x;
+                        const dy = node.y - other.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < lineDistance) {
+                            ctx.beginPath();
+                            ctx.moveTo(node.x, node.y);
+                            ctx.lineTo(other.x, other.y);
+                            ctx.strokeStyle = `rgba(156, 163, 175, ${1 - distance / lineDistance})`;
+                            ctx.stroke();
+                        }
+                    });
+                });
+                requestAnimationFrame(draw);
+            }
+
+            draw();
+
+            // --- Scroll Animation Logic ---
+            const sections = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = `fadeInSlide 1.2s ease-out forwards`;
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        };
+    </script>
+</body>
+</html>
