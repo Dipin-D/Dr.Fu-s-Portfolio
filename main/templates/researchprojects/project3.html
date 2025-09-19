@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change-Focused Faculty Learning Community</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
+            color: #374151;
+            overflow-x: hidden;
+        }
+        #network-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #1d4272;
+            margin-bottom: 1.8rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .team-card {
+            background: #1d4272;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .team-card:hover {
+            transform: scale(1.05);
+            background-color: #3b82f6;
+        }
+        .hero-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            background: linear-gradient(90deg, #1d4272, #3b82f6);
+            border-radius: 9999px;
+            box-shadow: 0 8px 25px rgba(29, 66, 114, 0.4);
+            transition: all 0.4s ease;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .hero-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(29, 66, 114, 0.6);
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            animation-fill-mode: forwards;
+        }
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            gap: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 1rem;
+            padding: 1.5rem 2.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+        }
+        .hero-logos {
+            width: 150px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        .hero-logos:hover {
+            transform: scale(1.05);
+        }
+        .nsf-logo {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+  <section class="relative h-[100vh] flex items-center justify-center text-center overflow-hidden">
+    <canvas id="network-canvas" class="absolute inset-0"></canvas>
+    <div class="absolute inset-0 bg-white/70 backdrop-blur-md"></div>
+
+    <a href="{% url 'researchprojects' %}" class="absolute top-8 left-8 z-20 text-[#1f2937] bg-white/60 backdrop-blur-lg px-5 py-2.5 rounded-full hover:bg-white/80 transition duration-300 ease-in-out">
+      ← Back
+    </a>
+
+    <div class="relative z-10 max-w-5xl px-8 text-center pt-24">
+      <div class="logo-container">
+        <img src="{% static 'project3.png' %}" alt="Logo 1" class="hero-logos">
+        <img src="{% static 'project3-2.png' %}" alt="Logo 2" class="hero-logos">
+      </div>
+
+      <h1 class="text-5xl sm:text-7xl md:text-8xl font-extrabold leading-tight text-[#212121] drop-shadow-lg">
+        Change-Focused Faculty Learning Community
+      </h1>
+
+      <p class="mt-8 text-2xl text-[#4b5563]">
+        <span class="font-semibold text-[#1d4272]">Integrating Student Learning and Engagement Strategies in CS/IT/SE Courses</span>
+      </p>
+      
+      <p class="mt-4 flex items-center gap-3 justify-center text-xl text-[#6b7280]">
+          Funded by 
+          <span class="font-bold text-[#1d4272]">National Science Foundation</span>
+          <img src="{% static 'NSF.jpg' %}" alt="NSF Logo" class="nsf-logo">
+      </p>
+
+    </div>
+  </section>
+
+    <section class="relative max-w-6xl mx-auto px-8 py-24 space-y-28">
+        <div id="overview" class="glass-card animate-on-scroll">
+            <h2 class="section-title">Project Summary</h2>
+            <p class="mb-8 text-xl text-[#4b5563]">This project, Collaborative Research: CUE-T, investigates how inclusive and equitable active learning strategies (IE-LESs) can improve student learning, engagement, and retention in online synchronous learning environments (OSLEs) for computing courses. Building on the rapid shift to online instruction after Spring 2020, the project addresses persistent challenges in attracting and retaining underrepresented students in computing (CS/IT/SE), particularly women and Black and Hispanic males. Led by Dr. Peter Clarke at FIU, six collaborating institutions—including two HBCUs, two HSIs, and two small universities—will implement and share resources:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center mt-10">
+                <div class="p-7 bg-[#dbeafe] rounded-xl border border-[#3b82f6]/50 shadow-lg transition hover:scale-105 duration-300">
+                    <h3 class="font-bold text-xl text-[#1d4272]">Professional Development</h3>
+                    <p class="mt-3 text-[#4b5563]">For faculty and learning assistants on integrating IE-LESs into OSLEs.</p>
+                </div>
+                <div class="p-7 bg-[#dbeafe] rounded-xl border border-[#3b82f6]/50 shadow-lg transition hover:scale-105 duration-300">
+                    <h3 class="font-bold text-xl text-[#1d4272]">Innovative Shared Courses</h3>
+                    <p class="mt-3 text-[#4b5563]">Design and delivery of new computing courses.</p>
+                </div>
+                <div class="p-7 bg-[#dbeafe] rounded-xl border border-[#3b82f6]/50 shadow-lg transition hover:scale-105 duration-300">
+                    <h3 class="font-bold text-xl text-[#1d4272]">Class Transformation</h3>
+                    <p class="mt-3 text-[#4b5563]">Transforming existing classes to employ IE-LESs.</p>
+                </div>
+                <div class="p-7 bg-[#dbeafe] rounded-xl border border-[#3b82f6]/50 shadow-lg transition hover:scale-105 duration-300">
+                    <h3 class="font-bold text-xl text-[#1d4272]">Student Outcome Evaluation</h3>
+                    <p class="mt-3 text-[#4b5563]">Evaluating effects on student retention and engagement.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="merit" class="glass-card animate-on-scroll">
+            <h2 class="section-title">Intellectual Merit</h2>
+            <p class="text-xl text-[#4b5563]">The project advances knowledge by systematically examining how combinations of collaborative learning, gamification, problem-based learning, and social interaction—adapted as inclusive and equitable pedagogies—affect diverse student populations in computing education. Through a mixed-methods experimental design, the study will generate empirical evidence on faculty and LA preparation, effectiveness of shared courses, and best combinations of IE-LESs that broaden participation in computing. The interdisciplinary team brings expertise in assessment, CS education, pedagogy, and learning technologies, supported by an external evaluator and advisory board. Outcomes will contribute to the scholarship of computing education, providing a replicable framework for transforming OSLEs into inclusive, engaging, and equitable environments.</p>
+        </div>
+
+        <div id="impacts" class="glass-card animate-on-scroll">
+            <h2 class="section-title">Broader Impacts</h2>
+            <p class="text-xl text-[#4b5563]">Over the project’s lifetime, more than 4,000 undergraduate students—at least 22% female and 75% from historically underrepresented groups—will directly benefit from enhanced computing courses. By training 15 faculty and 74 learning assistants, the project will build sustainable instructional capacity at minority-serving institutions. Results will inform broader adoption of inclusive pedagogies in online computing education, helping prepare a more diverse and equitable computing workforce. Dissemination will include national STEM and computing education conferences, peer-reviewed journals, and outreach at HBCUs, HSIs, and TCUs. The project has the potential to significantly impact equity in computing education and workforce participation, aligning with national priorities to broaden participation in STEM.  </div>
+
+        <div id="team" class="glass-card animate-on-scroll">
+            <h2 class="section-title text-center">Team</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="team-card">Toluwani Esan</div>
+                <div class="team-card">Inikpi Egbunu</div>
+                <div class="team-card">Anthony Mcgee</div>
+                <div class="team-card">Ernest Jordan</div>
+                <div class="team-card">Lyric Sampson</div>
+            </div>
+        </div>
+
+        <div id="pubs" class="glass-card animate-on-scroll">
+            <h2 class="section-title text-center">Publications & Posters</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div>
+                    <h3 class="text-2xl font-bold mb-5 text-[#1d4272]">AAMU STEM Day Posters</h3>
+                    <div class="p-7 bg-white/70 rounded-xl border border-[#3b82f6]/50 shadow-lg transition hover:border-[#1d4272] duration-300">
+                        <p class="text-[#4b5563] leading-relaxed text-lg">
+Toluwani Esan, Yujian Fu. Research Studying Student Engagement for Active Learning in Synchronous Online Learning. April 2024                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <button onclick="window.scrollTo({top:0, behavior:'smooth'})"
+        class="fixed bottom-8 right-8 px-5 py-4 bg-[#1d4272] rounded-full shadow-lg hover:bg-[#3b82f6] transition duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <script>
+        window.onload = function() {
+            const canvas = document.getElementById('network-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let nodes = [];
+            const maxNodes = 80;
+            const nodeRadius = 2.5;
+            const lineDistance = 180;
+
+            function resizeCanvas() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            for (let i = 0; i < maxNodes; i++) {
+                nodes.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.7,
+                    vy: (Math.random() - 0.5) * 0.7
+                });
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = 'rgba(59, 130, 246, 0.9)';
+                
+                nodes.forEach(node => {
+                    node.x += node.vx;
+                    node.y += node.vy;
+
+                    if (node.x < 0 || node.x > width) node.vx *= -1;
+                    if (node.y < 0 || node.y > height) node.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, nodeRadius, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    nodes.forEach(other => {
+                        if (node === other) return;
+                        const dx = node.x - other.x;
+                        const dy = node.y - other.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < lineDistance) {
+                            ctx.beginPath();
+                            ctx.moveTo(node.x, node.y);
+                            ctx.lineTo(other.x, other.y);
+                            const alpha = 1 - distance / lineDistance;
+                            const color = `rgba(59, 130, 246, ${alpha})`;
+                            ctx.strokeStyle = color;
+                            ctx.stroke();
+                        }
+                    });
+                });
+                requestAnimationFrame(draw);
+            }
+
+            draw();
+
+            const sections = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = `fadeInSlide 1.5s ease-out forwards`;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.25 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        };
+    </script>
+</body>
+</html>

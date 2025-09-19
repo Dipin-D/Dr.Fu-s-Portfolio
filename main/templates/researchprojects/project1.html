@@ -19,7 +19,7 @@
             width: 100%;
             height: 100%;
             border-radius: 1.5rem;
-            box-shadow: 0 0 40px rgba(93, 29, 41, 0.4);
+            box-shadow: 0 0 40px rgba(148, 61, 77, 0.4);
         }
         .container {
             max-width: 1280px;
@@ -185,9 +185,7 @@
         window.onload = function() {
             // --- Three.js Scene Setup (unchanged from previous version) ---
             const scene = new THREE.Scene();
-            scene.background = new THREE.Color(0x0c0f16);
-
-            const container = document.getElementById('canvas-container');
+scene.background = new THREE.Color(0x1a2c42);            const container = document.getElementById('canvas-container');
             const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
             const renderer = new THREE.WebGLRenderer({ antialias: true });
             renderer.setSize(container.clientWidth, container.clientHeight);

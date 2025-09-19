@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+        {% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpandAI: EXPERIENCE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0d0d1e;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        #bg-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle, rgba(29, 66, 114, 0.2) 0%, rgba(13, 13, 30, 0.8) 70%),
+                        url('data:image/svg+xml,%3Csvg width="100" height="100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M 0 0 L 100 100" stroke="%231a2c42" stroke-width="0.5"/%3E%3Cpath d="M 100 0 L 0 100" stroke="%231a2c42" stroke-width="0.5"/%3E%3C/svg%3E') repeat;
+            background-size: 15px 15px;
+        }
+
+        .glass-card {
+            background: rgba(26, 44, 66, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            border: 1px solid #1d4272;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #4ade80; /* Electric Green */
+            text-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+        }
+                
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            gap: 2.5rem;
+            background: rgba(26, 44, 66, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 2rem 3rem;
+            border: 1px solid rgba(60, 150, 255, 0.3);
+            box-shadow: 0 0 20px rgba(60, 150, 255, 0.2);
+        }
+        .hero-logos {
+            width: auto;
+            height: 150px;
+            transition: transform 0.3s ease;
+        }
+        .hero-logos:hover {
+            transform: scale(1.05);
+        }
+                .nsf-logo {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+    <div id="bg-effect"></div>
+
+    <section class="relative h-[100vh] flex items-center justify-center text-center overflow-hidden">
+        <div class="relative z-20 max-w-5xl px-8 text-center pt-24">
+            <div class="logo-container">
+                <img src="{% static 'project4.png' %}" alt=" Logo" class="hero-logos">
+                <img src="{% static 'project4-2.png' %}" alt="NSF Logo" class="hero-logos">
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-white drop-shadow-lg">
+                CAP: Expanding Education & Research in AI-Enabled Swarm Computing Evolution (EXPERIENCE)
+            </h1>
+
+<p class="flex items-center gap-3 justify-center text-xl text-[#6b7280]">
+    <span class="font-semibold text-sky-400">Agency: National Science Foundation</span>
+    <img src="{% static 'NSF.jpg' %}" alt="NSF Logo" class="nsf-logo">
+</p>
+
+            <a href="#overview" class="inline-block mt-12 px-10 py-4 text-xl font-bold text-white bg-gradient-to-r from-[#1d4272] to-[#4ade80] rounded-full shadow-lg transition-all duration-400 hover:scale-105 hover:shadow-2xl">
+                Explore Project ↓
+            </a>
+        </div>
+    </section>
+
+    <section class="relative max-w-6xl mx-auto px-8 py-24 space-y-28 z-20">
+        <a href="{% url 'researchprojects' %}" class="absolute top-8 left-8 text-white bg-white/10 backdrop-blur-lg px-5 py-2.5 rounded-full hover:bg-white/20 transition duration-300">
+            ← Back
+        </a>
+        
+        <div id="overview" class="glass-card animate-on-scroll">
+            <h2 class="section-title">Project Summary</h2>
+            <p>This project, ExpandAI: EXPERIENCE (EXPanding Education & Research in AI-ENabled Swarm Computing Evolution), seeks to establish Alabama A&M University (AAMU) as a leader in AI-enabled swarm robotics education and research. The primary goal is to build comprehensive capacity in swarm robotics by integrating research, curriculum development, and outreach. Objectives include:</p>
+            <ul class="list-disc list-inside mt-6 mb-8 space-y-3 pl-4 text-gray-200">
+                <li>enhancing research capacity in swarm autonomy through advances in cybersecurity, communication-based swarm coordination, multi-robot collaboration, and vision-based object detection;</li>
+                <li>expanding undergraduate and graduate curricula to include AI, machine learning, reinforcement learning, robotics programming, and swarm intelligence;</li>
+                <li>launching K-12 outreach programs such as intensive summer boot camps to broaden early exposure for underrepresented students; and</li>
+                <li>equipping students with advanced practical and theoretical skills to thrive in the evolving field of swarm robotics.</li>
+            </ul>
+        </div>
+        
+        <div id="merit" class="glass-card animate-on-scroll">
+            <h2 class="section-title">Intellectual Merit</h2>
+            <p class="text-gray-300">The project advances the field of AI-enabled swarm robotics by addressing key challenges in trustworthy computing, communication, swarm intelligence, and computer vision. It proposes novel approaches combining reinforcement learning, formal analysis, and deep learning to improve safety, reliability, and adaptability of swarm systems in dynamic environments. By leveraging AAMU’s existing infrastructure—including a swarm unmanned systems lab and a deep learning and hyperspectral imaging lab—the project will foster groundbreaking research and innovative curriculum development. The integration of AI-driven methods into coursework and hands-on projects will provide students with critical expertise in robotics, machine learning, and cybersecurity, while faculty will expand publications, graduate-level offerings, and collaborative research. This holistic approach ensures both knowledge creation and knowledge transfer, positioning AAMU as a hub for swarm robotics research and education.</p>
+        </div>
+
+        <div id="impacts" class="glass-card animate-on-scroll">
+            <h2 class="section-title">Broader Impacts</h2>
+            <p class="text-gray-300">As a Historically Black College and University (HBCU) where 94% of Computer Science and Electrical Engineering students identify as African American, AAMU provides a unique and powerful context for broadening participation in AI. This project will directly benefit hundreds of underrepresented students by enriching their preparation for careers and graduate study in AI and robotics. Outreach initiatives, including summer boot camps for K-12 students and mentorship programs, will inspire the next generation and expand the pipeline into STEM. New undergraduate concentrations and graduate courses will draw a diverse talent pool and strengthen institutional capacity. The project will cultivate a workforce of technologically adept, equity-driven professionals equipped to contribute to national competitiveness in AI and robotics. By combining advanced research, curriculum expansion, and inclusive outreach, this initiative establishes a sustainable model for diversifying and advancing swarm robotics education and innovation.</p>
+        </div>
+        
+        <div id="team" class="glass-card animate-on-scroll">
+            <h2 class="section-title text-center">Team</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+                <div class="bg-[#1d4272] p-6 rounded-xl font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-[#3b82f6] shadow-md">Romail Arif</div>
+                <div class="bg-[#1d4272] p-6 rounded-xl font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-[#3b82f6] shadow-md">Adeyori Adekunte</div>
+                <div class="bg-[#1d4272] p-6 rounded-xl font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-[#3b82f6] shadow-md">Sijan Mainali</div>
+            </div>
+        </div>
+
+        <div id="pubs" class="glass-card animate-on-scroll">
+            <h2 class="section-title text-center">Publications & Posters</h2>
+            <div class="space-y-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-3 text-sky-400">Publications</h3>
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <p class="text-gray-300 leading-relaxed">
+                            <strong>Daniel Lambo</strong> and <strong>Ed Pearson</strong> (2025). <em>Fraudulent Digital Fingerprint: Developing a Dynamic Scam Detection Tool Through Machine Learning and Network Analysis</em>. SAM'25 - International Conference on Security and Management. Las Vegas, USA. 
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-3 text-sky-400">AAMU STEM Day Posters</h3>
+                    <p class="text-gray-300">TBA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="fixed bottom-8 right-8 p-4 bg-[#1d4272] rounded-full shadow-lg transition-all duration-300 hover:bg-[#4ade80] hover:scale-110">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-on-scroll').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
