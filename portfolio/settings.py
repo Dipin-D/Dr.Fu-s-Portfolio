@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-gbi86&l1u=irs)hi14h9g9+8sr=(7!^_g!zpzsn!6thzyts)=l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'yujian-fu.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'yujian-fu.com', 'www.yujian-fu.com']
 
 # Application definition
 
