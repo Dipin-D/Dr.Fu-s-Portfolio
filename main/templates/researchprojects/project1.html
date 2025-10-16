@@ -147,18 +147,40 @@
             </div>
 
             <div id="team" class="glass-card section-fade-in">
-                <h2 class="text-3xl font-bold mb-6 text-gray-200 text-center">Team & Publications</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="space-y-6">
-                        <h3 class="text-2xl font-bold text-gray-300">Team</h3>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="team-card text-center">Carlan Jackson</div>
-                            <div class="team-card text-center">Mercy Akinyemi</div>
-                            <div class="team-card text-center">Daniel Lambo</div>
-                            <div class="team-card text-center">Yachty Smith</div>
-                            <div class="team-card text-center">Alberto Shuford</div>
+            <h2 class="text-3xl font-bold mb-6 text-gray-200 text-center">Team & Publications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-gray-300">Team</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="team-card text-center">Carlan Jackson</div>
+
+                        <!-- Mercy video -->
+                        <div class="team-card text-center">
+                            <a href="{% static 'mercy_video.mov' %}" target="_blank" class="text-[#2d727a] font-semibold underline hover:text-[#5d1d29]">
+                                Mercy Akinyemi
+                            </a>
                         </div>
+
+                        <div class="team-card text-center">Daniel Lambo</div>
+
+                        <!-- Elton presentation -->
+                        <div class="team-card text-center">
+                            <a href="{% static 'elton_presentation.pptx' %}" target="_blank" class="text-[#2d727a] font-semibold underline hover:text-[#5d1d29]">
+                                Elton Mawire
+                            </a>
+                        </div>
+
+                        <!-- Jeeban presentation -->
+                        <div class="team-card text-center">
+                            <a href="{% static 'jeeban_presentation.pdf' %}" target="_blank" class="text-[#2d727a] font-semibold underline hover:text-[#5d1d29]">
+                                Jeeban Bashyal
+                            </a>
+                        </div>
+
+                        <div class="team-card text-center">Alberto Shuford</div>
                     </div>
+                </div>
+
 
                     <div class="space-y-6">
                         <h3 class="text-2xl font-bold text-gray-300">Publications</h3>
