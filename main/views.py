@@ -21,9 +21,6 @@ def project3(request):
 def project4(request):
     return render(request, 'researchprojects/project4.html')
 
-def project5(request):
-    return render(request, 'researchprojects/project5.html')
-
 def publications(request):
     return render(request, 'publications.html')
 
