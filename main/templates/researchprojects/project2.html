@@ -69,6 +69,13 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(99, 102, 241, 0.6);
         }
+        .nsf-logo {
+            width: 2rem !important;
+            height: 2rem !important;
+            vertical-align: -0.15em;
+            object-fit: contain !important;
+            border-radius: 0.125rem !important;
+        }
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(20px);
@@ -105,8 +112,7 @@
         <p class="flex items-center gap-2 justify-center text-lg">
           Funded by 
           <span class="font-semibold text-white">National Science Foundation</span>
-          <img src="{% static 'NSF.jpg' %}" alt="NSF Logo" 
-               class="w-6 h-6 rounded-full object-cover border border-gray-300 shadow-sm">
+          <img src="{% static 'NSF.jpg' %}" alt="NSF Logo" class="nsf-logo rounded-full shadow-sm">
         </p>
       </p>
 

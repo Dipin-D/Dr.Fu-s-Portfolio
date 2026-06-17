@@ -114,8 +114,19 @@
 <p class="flex items-center gap-2 justify-center text-lg">
     Funded by 
     <span class="font-semibold text-white">National Science Foundation</span>
-    <img src="{% static 'NSF.jpg' %}" alt="NSF Logo" class="w-6 h-6 rounded-full object-cover border border-gray-300 shadow-sm">
+    <img src="{% static 'NSF.jpg' %}" alt="NSF Logo" class="nsf-logo rounded-full object-cover border border-gray-300 shadow-sm">
 </p>
+
+    <style>
+      /* Make NSF image larger and visible */
+      .nsf-logo {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+        vertical-align: middle !important;
+        object-fit: cover !important;
+        border-radius: 50% !important;
+      }
+    </style>
             <a href="#overview" class="hero-button mt-6">
                 Explore Project ↓
             </a>
