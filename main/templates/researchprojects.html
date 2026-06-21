@@ -4,6 +4,28 @@
 {% block title %}Research Projects - Dr. Yujian Fu{% endblock %}
 
 {% block content %}
+<style>
+  .project-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border-left-width: 5px !important;
+  }
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15) !important;
+  }
+  .project-card a {
+    transition: color 0.2s ease;
+    line-height: 1.5;
+  }
+  .project-card a:hover {
+    color: #0052a3 !important;
+  }
+  .project-card .card-body {
+    padding: 1.75rem;
+  }
+</style>
+
 <section class="container py-5">
   <!-- Header -->
   <header class="text-center mb-5">
@@ -14,99 +36,97 @@
     </p>
   </header>
 
-  <!-- Projects Table -->
-  <div class="overflow-x-auto bg-white">
-    <table class="w-full border border-gray-200 shadow-sm rounded-lg overflow-hidden">
-      <thead class="bg-gray-100 text-gray-700 text-xs md:text-sm uppercase tracking-wide">
-        <tr>
-          <th class="text-left px-4 py-3 w-2/5">Project</th>
-          <th class="text-left px-4 py-3 w-1/6">Agency</th>
-          <th class="text-left px-4 py-3 w-1/6">Timeline</th>
-        </tr>
-      </thead>
-      <tbody class="divide-y divide-gray-200 text-gray-800 text-sm md:text-base">
-
-        <!-- NSF Row 1 -->
-        <tr class="hover:bg-gray-50">
-          <td class="px-4 py-4">
-            <a href="{% url 'project1' %}" class="text-blue-600 hover:underline">
-              Excellence in Research – Research of Swarm Control by Synthesizing Reinforcement Learning with Temporal Logic in Swarm
-            </a>
-          </td>
-          <td class="px-4 py-4 flex items-center gap-2">
+  <!-- Projects Grid (Cards) -->
+  <div class="row g-4">
+    <!-- NSF Card 1 -->
+    <div class="col-12">
+      <div class="card border-0 shadow project-card" style="border-left: 5px solid #0d6efd;">
+        <div class="card-body">
+          <a href="{% url 'project1' %}" class="text-blue-600 text-decoration-none fw-bold" style="font-size:1.05rem;">
+            Excellence in Research – Research of Swarm Control by Synthesizing Reinforcement Learning with Temporal Logic in Swarm
+          </a>
+          <div class="mt-3 d-flex align-items-center gap-2">
             <img src="{% static 'NSF.jpg' %}" alt="NSF"
-                 class="rounded-full border border-2 border-gray-300 shadow-sm"
+                 class="rounded-circle border border-2 border-gray-300 shadow-sm"
                  style="width:40px; height:40px; object-fit:cover; background:#f0f0f0;">
-            NSF
-          </td>
-          <td class="px-4 py-4 text-gray-600">September 2024 – August 2027</td>
-        </tr>
+            <span class="small text-muted">NSF</span>
+          </div>
+          <p class="mb-0 small text-muted mt-3">September 2024 – August 2027</p>
+        </div>
+      </div>
+    </div>
 
-        <!-- NSF Row 2 -->
-        <tr class="hover:bg-gray-50">
-          <td class="px-4 py-4">
-            <a href="{% url 'project2' %}" class="text-blue-600 hover:underline">
-              Improving Programming Skills of Engineering Students at Historically Black Colleges and Universities Using AI-enhanced
-            </a>
-          </td>
-          <td class="px-4 py-4 flex items-center gap-2">
+    <!-- NSF Card 2 -->
+    <div class="col-12">
+      <div class="card border-0 shadow project-card" style="border-left: 5px solid #0d6efd;">
+        <div class="card-body">
+          <a href="{% url 'project2' %}" class="text-blue-600 text-decoration-none fw-bold" style="font-size:1.05rem;">
+            Improving Programming Skills of Engineering Students at Historically Black Colleges and Universities Using AI-enhanced
+          </a>
+          <div class="mt-3 d-flex align-items-center gap-2">
             <img src="{% static 'NSF.jpg' %}" alt="NSF"
-                 class="rounded-full border border-2 border-gray-300 shadow-sm"
+                 class="rounded-circle border border-2 border-gray-300 shadow-sm"
                  style="width:40px; height:40px; object-fit:cover; background:#f0f0f0;">
-            NSF
-          </td>
-          <td class="px-4 py-4 text-gray-600">September 2023 – August 2026</td>
-        </tr>
+            <span class="small text-muted">NSF</span>
+          </div>
+          <p class="mb-0 small text-muted mt-3">September 2023 – August 2026</p>
+        </div>
+      </div>
+    </div>
 
-        <!-- NSF Row 3 -->
-        <tr class="hover:bg-gray-50">
-          <td class="px-4 py-4">
-            <a href="{% url 'project3' %}" class="text-blue-600 hover:underline">
-              Implementing a Change-Focused Faculty Learning Community for Integrating Student Learning and Engagement Strategies in CS/IT/SE Courses
-            </a>
-          </td>
-          <td class="px-4 py-4 flex items-center gap-2">
+    <!-- NSF Card 3 -->
+    <div class="col-12">
+      <div class="card border-0 shadow project-card" style="border-left: 5px solid #0d6efd;">
+        <div class="card-body">
+          <a href="{% url 'project3' %}" class="text-blue-600 text-decoration-none fw-bold" style="font-size:1.05rem;">
+            Implementing a Change-Focused Faculty Learning Community for Integrating Student Learning and Engagement Strategies in CS/IT/SE Courses
+          </a>
+          <div class="mt-3 d-flex align-items-center gap-2">
             <img src="{% static 'NSF.jpg' %}" alt="NSF"
-                 class="rounded-full border border-2 border-gray-300 shadow-sm"
+                 class="rounded-circle border border-2 border-gray-300 shadow-sm"
                  style="width:40px; height:40px; object-fit:cover; background:#f0f0f0;">
-            NSF
-          </td>
-          <td class="px-4 py-4 text-gray-600">June 2023 – May 2027</td>
-        </tr>
+            <span class="small text-muted">NSF</span>
+          </div>
+          <p class="mb-0 small text-muted mt-3">June 2023 – May 2027</p>
+        </div>
+      </div>
+    </div>
 
-        <!-- NSF Row 4 -->
-        <tr class="hover:bg-gray-50">
-          <td class="px-4 py-4">
-            <a href="{% url 'project4' %}" class="text-blue-600 hover:underline">
-            CAP: EXPanding Education & Research in AI-Enabled Swarm Computing Evolution (EXPERIENCE)            </a>
-          </td>
-          <td class="px-4 py-4 flex items-center gap-2">
+    <!-- NSF Card 4 -->
+    <div class="col-12">
+      <div class="card border-0 shadow project-card" style="border-left: 5px solid #0d6efd;">
+        <div class="card-body">
+          <a href="{% url 'project4' %}" class="text-blue-600 text-decoration-none fw-bold" style="font-size:1.05rem;">
+            CAP: EXPanding Education & Research in AI-Enabled Swarm Computing Evolution (EXPERIENCE)
+          </a>
+          <div class="mt-3 d-flex align-items-center gap-2">
             <img src="{% static 'NSF.jpg' %}" alt="NSF"
-                 class="rounded-full border border-2 border-gray-300 shadow-sm"
+                 class="rounded-circle border border-2 border-gray-300 shadow-sm"
                  style="width:40px; height:40px; object-fit:cover; background:#f0f0f0;">
-            NSF
-          </td>
-          <td class="px-4 py-4 text-gray-600">September 2023 – August 2026</td>
-        </tr>
+            <span class="small text-muted">NSF</span>
+          </div>
+          <p class="mb-0 small text-muted mt-3">September 2023 – August 2026</p>
+        </div>
+      </div>
+    </div>
 
-        <!-- AFRL Row -->
-        <tr class="hover:bg-gray-50">
-          <td class="px-4 py-4">
-            <a href="https://www.fmacps.com/" class="text-blue-600 hover:underline">
-              Synthesized Control Using Reinforcement Learning
-            </a>
-          </td>
-          <td class="px-4 py-4 flex items-center gap-2">
+    <!-- AFRL Card -->
+    <div class="col-12">
+      <div class="card border-0 shadow project-card" style="border-left: 5px solid #ff9800;">
+        <div class="card-body">
+          <a href="https://www.fmacps.com/" class="text-blue-600 text-decoration-none fw-bold" style="font-size:1.05rem;">
+            Synthesized Control Using Reinforcement Learning
+          </a>
+          <div class="mt-3 d-flex align-items-center gap-2">
             <img src="{% static 'AFRL.png' %}" alt="AFRL"
-                 class="rounded-md border border-2 border-gray-300 shadow-sm"
+                 class="rounded border border-2 border-gray-300 shadow-sm"
                  style="width:100px; height:50px; object-fit:contain; background:#f0f0f0;">
-            AFRL
-          </td>
-          <td class="px-4 py-4 text-gray-600">March 2022 – February 2024</td>
-        </tr>
-
-      </tbody>
-    </table>
+            <span class="small text-muted">AFRL</span>
+          </div>
+          <p class="mb-0 small text-muted mt-3">March 2022 – February 2024</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 {% endblock %}

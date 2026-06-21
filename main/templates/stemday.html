@@ -4,7 +4,40 @@
 {% block title %}AAMU STEM Day Posters{% endblock %}
 
 {% block content %}
+<style>
+  .stem-back-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #ffffff;
+    color: #0d6efd;
+    border: 1px solid rgba(13, 110, 253, 0.2);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .stem-back-btn:hover, .stem-back-btn:focus {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    color: #0d6efd;
+    text-decoration: none;
+  }
+  @media (max-width: 576px) {
+    .stem-back-btn {
+      padding: 0.6rem 0.8rem;
+      font-size: 0.9rem;
+      width: 100%;
+      text-align: center;
+      display: block;
+    }
+  }
+</style>
+
 <section class="container py-5">
+  <a href="{% url 'researchprojects' %}" onclick="if(history.length>1){ history.back(); return false; }" class="stem-back-btn mb-4">← Back</a>
+  
   <header class="text-center mb-5">
     <h2 class="fw-bold mb-2">AAMU STEM Day Poster Highlights</h2>
   </header>
@@ -12,7 +45,7 @@
   <div class="row gy-4">
     <div class="col-12">
       <div class="p-4 rounded-4 shadow-sm" style="background:#f8fafc;">
-        <h3 class="h5 fw-bold text-primary">2026 EECS Participant Entries</h3>
+        <h3 class="h5 fw-bold text-primary">2026 STEM Day Poster Entries</h3>
         {% if stemday_2026 %}
           <div class="list-group mt-3">
             {% for row in stemday_2026 %}
