@@ -1,3 +1,4 @@
+from django.http import FileResponse, Http404
 from django.shortcuts import render
 from pathlib import Path
 import zipfile
@@ -5,6 +6,38 @@ import xml.etree.ElementTree as ET
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 XML_NS = {'a': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
+DOCX_NS = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
+
+PERSONAL_STORY_FILES = [
+    {
+        'slug': 'chapter-1',
+        'label': 'Chapter 1',
+        'title': '第一天',
+        'mood': 'The first quiet evening after the moon goes offline.',
+        'filename': 'portrait-chap1.docx',
+    },
+    {
+        'slug': 'chapter-5',
+        'label': 'Chapter 5',
+        'title': '第五天',
+        'mood': 'Memory opens a door between architecture, home, and longing.',
+        'filename': 'Potrait-chap5.docx',
+    },
+    {
+        'slug': 'chapter-6',
+        'label': 'Chapter 6',
+        'title': '第六天',
+        'mood': 'A storm arrives, and the heart finally learns what it was afraid to say.',
+        'filename': 'Portrait-chap6.docx',
+    },
+    {
+        'slug': 'chapter-7',
+        'label': 'Chapter 7',
+        'title': '第七天',
+        'mood': 'After the rain, two people meet again at the same door, changed.',
+        'filename': 'Potrait-chap7.docx',
+    },
+]
 
 STEMDAY_2026_ENTRIES = [
     {
@@ -291,6 +324,58 @@ def _parse_spreadsheet(path):
     return parsed
 
 
+def _load_personal_stories():
+    stories = []
+    for story_file in PERSONAL_STORY_FILES:
+        path = BASE_DIR / story_file['filename']
+        paragraphs = _read_docx_paragraphs(path) if path.exists() else []
+        if paragraphs and paragraphs[0]['text'] == story_file['title']:
+            paragraphs = paragraphs[1:]
+
+        stories.append({
+            **story_file,
+            'href': f"files/{story_file['filename']}",
+            'exists': path.exists(),
+            'paragraphs': paragraphs,
+        })
+    return stories
+
+
+def _get_personal_story(filename):
+    for story_file in PERSONAL_STORY_FILES:
+        if story_file['filename'] == filename:
+            return story_file
+    return None
+
+
+def _get_personal_story_by_slug(slug):
+    for story_file in PERSONAL_STORY_FILES:
+        if story_file['slug'] == slug:
+            return story_file
+    return None
+
+
+def _read_docx_paragraphs(path):
+    with zipfile.ZipFile(path) as archive:
+        raw = archive.read('word/document.xml')
+
+    document = ET.fromstring(raw)
+    paragraphs = []
+    for paragraph in document.findall('.//w:p', DOCX_NS):
+        text = ''.join(node.text or '' for node in paragraph.findall('.//w:t', DOCX_NS)).strip()
+        if text:
+            is_heading = (
+                len(text) <= 28
+                and text.startswith('第')
+                and ('幕' in text or '节' in text or '天' in text)
+            )
+            paragraphs.append({
+                'text': text,
+                'is_heading': is_heading,
+            })
+    return paragraphs
+
+
 def base(request):
     return render(request, 'base.html')
 def home(request):
@@ -328,3 +413,33 @@ def software(request):
 
 def bio(request):
     return render(request, 'bio.html')
+
+def personal(request):
+    return render(request, 'personal.html', {
+        'stories': _load_personal_stories(),
+    })
+
+def personal_file(request, filename):
+    story_file = _get_personal_story(filename)
+    if not story_file:
+        raise Http404("Story file not found")
+
+    path = BASE_DIR / filename
+    if not path.exists():
+        raise Http404("Story file not found")
+
+    return FileResponse(path.open('rb'), as_attachment=False, filename=filename)
+
+def personal_reader(request, slug):
+    story_file = _get_personal_story_by_slug(slug)
+    if not story_file:
+        raise Http404("Story file not found")
+
+    path = BASE_DIR / story_file['filename']
+    if not path.exists():
+        raise Http404("Story file not found")
+
+    return render(request, 'personal_doc.html', {
+        'story': story_file,
+        'paragraphs': _read_docx_paragraphs(path),
+    })

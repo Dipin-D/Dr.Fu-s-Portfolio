@@ -13,4 +13,7 @@ urlpatterns = [
     path('courses/', views.courses, name='courses'),
     path('software/', views.software, name='software'),
     path('bio/', views.bio, name='bio'),
+    path('personal/', views.personal, name='personal'),
+    path('personal/files/<path:filename>', views.personal_file, name='personal_file'),
+    path('personal/read/<slug:slug>/', views.personal_reader, name='personal_reader'),
 ]

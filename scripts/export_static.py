@@ -15,6 +15,7 @@ django.setup()
 
 from django.conf import settings
 from django.test import Client
+from main.views import PERSONAL_STORY_FILES
 
 
 DEFAULT_OUTPUT_DIR = BASE_DIR / "build" / "site"
@@ -30,6 +31,7 @@ PAGES = {
     "publications/": "publications",
     "courses/": "courses",
     "software/": "software",
+    "personal/": "personal",
     "bio/": "bio",
 }
 
@@ -92,6 +94,13 @@ def main() -> None:
 
     if STATIC_SOURCE_DIR.exists():
         shutil.copytree(STATIC_SOURCE_DIR, output_dir / "static", dirs_exist_ok=True)
+
+    personal_files_dir = output_dir / "personal" / "files"
+    personal_files_dir.mkdir(parents=True, exist_ok=True)
+    for story_file in PERSONAL_STORY_FILES:
+        source = BASE_DIR / story_file["filename"]
+        if source.exists():
+            shutil.copy2(source, personal_files_dir / story_file["filename"])
 
     (output_dir / ".nojekyll").write_text("", encoding="utf-8")
 
